@@ -1,0 +1,8 @@
+<div class="flex column center-items full-width dialog-container">
+    <h1> {{ picture?.filename }} </h1>
+    @if (picture) {
+        <div class="file-container">
+            <img [src]="getFileLink(picture.filename)" alt="">
+        </div>
+    }
+</div>

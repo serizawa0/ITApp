@@ -1,0 +1,17 @@
+
+<div class="flex row space-between fullwidth">
+    <div class="">
+        @for (item of users; track $index) {
+            <p>{{ item.id }} {{ item.name }}</p>
+        }
+    </div>
+    <router-outlet></router-outlet>>
+    <div class="flex column">
+        <app-item-dialog (output)="handleValue($event)"></app-item-dialog>
+        <div class="flex column">
+            @for (item of items; track $index) {
+                <p (click)="itemClicked(item)">{{ item.libele }}</p>
+            }
+        </div>
+    </div>
+</div>

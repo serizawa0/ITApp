@@ -1,0 +1,45 @@
+.red{
+    animation: redAnimation 2s infinite linear;
+}
+.green{
+    animation: greenAnimation 5s infinite linear;
+}
+.yellow{
+    animation: yellowAnimation 10s infinite linear;
+}
+
+@keyframes redAnimation {
+    0%{
+        background: red;
+    }
+    50%{
+        background: #fff;
+    }
+    100%{
+        background: red;
+    }
+}
+
+@keyframes yellowAnimation {
+    0%{
+        background: yellow;
+    }
+    50%{
+        background: #fff;
+    }
+    100%{
+        background: yellow;
+    }
+}
+
+@keyframes greenAnimation {
+    0%{
+        background: rgb(31, 250, 24);
+    }
+    50%{
+        background: rgb(76, 255, 70);
+    }
+    100%{
+        background: rgb(31, 250, 24);
+    }
+}
