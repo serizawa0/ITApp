@@ -2,6 +2,7 @@
     <div class="flex row space-between subtask-case" [ngClass]="getClass()">
         <div class="flex row gap-05em ">
             <h1>{{ task.title }}</h1>
+            <button (click)="dropSubtask()">Delete</button>
             <button (click)="openCommentaries()" class="nav-button">Commentaires</button>
             <button (click)="openDialog()" class="nav-button">Fichiers</button>
             @if (!task.done) {

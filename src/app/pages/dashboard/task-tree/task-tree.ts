@@ -153,4 +153,11 @@ export class TaskTree implements OnInit{
     else
       return true
   }
+  dropSubtask(){
+    this.liaisonBackS.dropSubtask(this.task.id).then(data => data.subscribe(
+      element => {
+        this.relaiToSource()
+      }
+    ))
+  }
 }
