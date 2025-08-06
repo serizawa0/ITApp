@@ -10,7 +10,8 @@ import { CommentaryInterface } from '../../../interfaces/CommentaryInterface';
   providedIn: 'root'
 })
 export class LiaisonBack {
-  URL = 'http://localhost:3995/'
+  // URL = 'http://localhost:3995/'
+  URL = 'http://192.168.1.175:3995/'
   
   constructor(
     private http:HttpClient
