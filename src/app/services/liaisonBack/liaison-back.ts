@@ -5,17 +5,21 @@ import Item from '../../../classes/Item';
 import { Task } from '../../../interfaces/TaskInterfaces';
 import { FileInterface } from '../../../interfaces/FileInterface';
 import { CommentaryInterface } from '../../../interfaces/CommentaryInterface';
+import { LinkService } from '../link-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LiaisonBack {
   // URL = 'http://localhost:3995/'
-  URL = 'http://192.168.1.175:3995/'
+  URL = ''
   
   constructor(
-    private http:HttpClient
-  ){}
+    private http:HttpClient,
+    private link:LinkService
+  ){
+    this.URL = this.link.URL
+  }
 
   async getUsers(){
     return this.http.get<User[]>(this.URL+'getUsers')
