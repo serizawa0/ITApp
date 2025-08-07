@@ -18,8 +18,8 @@ export class DialogService {
         backdropClass: 'cdk-overlay-dark-backdrop',
         positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
       });
-      const commponentPortal = new ComponentPortal(Loading)
-      this.overlayRef.attach(ComponentPortal)
+      const componentPortal = new ComponentPortal(Loading)
+      this.overlayRef.attach(componentPortal)
     }
   }
   closeLoading(){
