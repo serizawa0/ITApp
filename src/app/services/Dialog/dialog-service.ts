@@ -1,6 +1,7 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
 import { Loading } from '../../popups/loading/loading';
+import { ComponentPortal } from '@angular/cdk/portal';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class DialogService {
         backdropClass: 'cdk-overlay-dark-backdrop',
         positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
       });
-      this.overlayRef.attach(Loading)
+      const commponentPortal = new ComponentPortal(Loading)
+      this.overlayRef.attach(ComponentPortal)
     }
   }
   closeLoading(){
