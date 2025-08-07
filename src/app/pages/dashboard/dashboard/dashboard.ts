@@ -66,6 +66,7 @@ export class Dashboard implements AfterViewInit{
     const deadLine = this.subTaskForm.get('deadLine')?.value
     const parentId = undefined
     if (title && deadLine) {
+      this.dialogService.openLoading()
       const newDeadLine = new Date(deadLine)
       this.liaison.addSubTask(title, parentId, taskid, newDeadLine).then(data => data.subscribe(element => {
         this.subTaskForm.reset()
@@ -95,5 +96,13 @@ export class Dashboard implements AfterViewInit{
   }
   openLoading(){
 
+  }
+  dropTask(id:string){
+    this.dialogService.openLoading()
+    this.liaison.dropTask(id).then( data => data.subscribe(
+      element => {
+        this.getTask()
+      }
+    ))
   }
 } 

@@ -60,6 +60,11 @@ export class LiaisonBack {
     return this.http.post(this.URL+'dropSubtask', data)
   }
 
+  async dropTask(id:string) {
+    const data = { id:id }
+    return this.http.post(this.URL+'dropTask', data)
+  }
+
   async uploadFiles(formData:FormData){
     return this.http.post(this.URL+'uploadFiles', formData)
   }

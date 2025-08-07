@@ -1,13 +1,16 @@
 <div class="flex column gap-05em">
-    <div class="flex row space-between subtask-case" [ngClass]="getClass()">
-        <div class="flex row gap-05em ">
-            <h1>{{ task.title }}</h1>
-            <button (click)="dropSubtask()">Delete</button>
-            <button (click)="openCommentaries()" class="nav-button">Commentaires</button>
-            <button (click)="openDialog()" class="nav-button">Fichiers</button>
-            @if (!task.done) {
-                <button (click)="finishSubTask(task.id)" class="nav-button">D</button>
-            }
+    <div class="flex row space-between">
+        <div class="flex row center-items">
+            <span class="diamond" [ngClass]="getClass()"></span>
+            <div class="flex row gap-05em ">
+                <h1>{{ task.title }}</h1>
+                <button (click)="dropSubtask()" class="nav-button">Delete</button>
+                <button (click)="openCommentaries()" class="nav-button">Commentaires</button>
+                <button (click)="openDialog()" class="nav-button">Fichiers</button>
+                @if (!task.done) {
+                    <button (click)="finishSubTask(task.id)" class="nav-button">D</button>
+                }
+            </div>
         </div>
         <h1> {{ task.deadLine | date:'d MMMM y' }} </h1>
     </div>

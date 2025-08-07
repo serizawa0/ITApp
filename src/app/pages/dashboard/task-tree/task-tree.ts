@@ -167,20 +167,7 @@ export class TaskTree implements OnInit{
     ))
   }
   openLoading(){
-    const positionStrategy =  this.overlay.position()
-      .global()
-      .centerHorizontally()
-      .centerVertically()
-
-    this.overlayRef = this.overlay.create({
-      hasBackdrop:true,
-      positionStrategy,
-      scrollStrategy: this.overlay.scrollStrategies.block()
-    })
-
-
-    const commentaryPortal = new ComponentPortal(Loading)
-    const componentRef =this.overlayRef.attach(commentaryPortal)
+    this.dialogService.openLoading()
   }
   closeLoading(){
     if (this.overlayRef) {

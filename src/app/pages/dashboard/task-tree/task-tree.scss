@@ -8,6 +8,15 @@
     animation: yellowAnimation 10s infinite linear;
 }
 
+.diamond{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    vertical-align: middle;
+    transform: rotate(45deg);
+}
+
 @keyframes redAnimation {
     0%{
         background: red;
