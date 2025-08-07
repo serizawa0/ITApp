@@ -15,7 +15,6 @@ export class DialogService {
     if (!this.overlayRef) {
       this.overlayRef = this.overlay.create({
         hasBackdrop: true,
-        backdropClass: 'cdk-overlay-dark-backdrop',
         positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
       });
       const componentPortal = new ComponentPortal(Loading)
