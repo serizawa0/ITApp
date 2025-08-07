@@ -10,6 +10,7 @@ import { FileList } from '../../dialogs/file-list/file-list';
 import { Commentary } from '../../dialogs/commentary/commentary';
 import { CommonModule } from '@angular/common';
 import { Loading } from '../../../popups/loading/loading';
+import { DialogService } from '../../../services/Dialog/dialog-service';
 
 @Component({
   selector: 'app-task-tree',
@@ -31,6 +32,7 @@ export class TaskTree implements OnInit{
     private liaisonBackS:LiaisonBack,
     private overlay: Overlay,
     private viewContainerRef: ViewContainerRef,
+    private dialogService:DialogService
 
   ){
     this.subTaskForm = this.formBuilder.group({
@@ -96,11 +98,11 @@ export class TaskTree implements OnInit{
     const taskId = this.task.taskId
     console.log(title+' '+deadLine)
     if(title && deadLine){
+      this.dialogService.openLoading()
       console.log(title+' '+parentId+' '+deadLine)
       const newDeadLine = new Date(deadLine)
       this.liaisonBackS.addSubTask(title, parentId, taskId, newDeadLine).then(data => data.subscribe(
         element => {
-          this.closeLoading()
           this.relaiToSource()     
         }
       ))

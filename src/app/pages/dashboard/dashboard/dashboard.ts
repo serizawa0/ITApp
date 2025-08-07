@@ -4,6 +4,7 @@ import { TaskTree } from '../task-tree/task-tree';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LiaisonBack } from '../../../services/liaisonBack/liaison-back';
 import { DefaultDeserializer } from 'v8';
+import { DialogService } from '../../../services/Dialog/dialog-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +20,8 @@ export class Dashboard implements AfterViewInit{
   subTaskForm:FormGroup
   constructor(
     private formBuilder:FormBuilder,
-    private liaison:LiaisonBack
+    private liaison:LiaisonBack,
+    private dialogService:DialogService
   ){
     this.taskForm = this.formBuilder.group({
       title:''
@@ -36,6 +38,7 @@ export class Dashboard implements AfterViewInit{
     this.liaison.getTask().then(data => data.subscribe(
       element => {
         this.tasks = element
+        this.dialogService.closeLoading()
         console.log(this.tasks)
       }
     ))
@@ -91,6 +94,6 @@ export class Dashboard implements AfterViewInit{
       return true
   }
   openLoading(){
-    
+
   }
 } 
