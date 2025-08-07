@@ -6,6 +6,8 @@
                 <div class="flex row gap-05em">
                     <h1>{{ task.title }}</h1>
                     <button class="simple-button-1" (click)="dropTask(task.id)">Delete</button>
+                    <button><span class="material-icons">home</span></button>
+
                 </div>
                 <div class="flex column">
                     @for (subtask of task.subTasks; track $index) {
