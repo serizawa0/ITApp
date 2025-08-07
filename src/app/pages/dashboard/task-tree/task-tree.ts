@@ -4,11 +4,12 @@ import { log } from 'node:console';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LiaisonBack } from '../../../services/liaisonBack/liaison-back';
 import { elementAt } from 'rxjs';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { FileList } from '../../dialogs/file-list/file-list';
 import { Commentary } from '../../dialogs/commentary/commentary';
 import { CommonModule } from '@angular/common';
+import { Loading } from '../../../popups/loading/loading';
 
 @Component({
   selector: 'app-task-tree',
@@ -24,6 +25,7 @@ export class TaskTree implements OnInit{
   @Input() task!:SubTask
   subTaskForm:FormGroup
   placeHolder = ''
+  private overlayRef: OverlayRef | null = null;
   constructor(
     private formBuilder:FormBuilder,
     private liaisonBackS:LiaisonBack,
@@ -87,7 +89,7 @@ export class TaskTree implements OnInit{
 
   addSubTask(){
     // console.log(this.task);
-    
+    this.openLoading()
     const title = this.subTaskForm.get('title')?.value
     const deadLine = this.subTaskForm.get('deadLine')?.value
     const parentId = this.task.id
@@ -98,6 +100,7 @@ export class TaskTree implements OnInit{
       const newDeadLine = new Date(deadLine)
       this.liaisonBackS.addSubTask(title, parentId, taskId, newDeadLine).then(data => data.subscribe(
         element => {
+          this.closeLoading()
           this.relaiToSource()     
         }
       ))
@@ -154,10 +157,33 @@ export class TaskTree implements OnInit{
       return true
   }
   dropSubtask(){
+    this.openLoading()
     this.liaisonBackS.dropSubtask(this.task.id).then(data => data.subscribe(
       element => {
         this.relaiToSource()
       }
     ))
+  }
+  openLoading(){
+    const positionStrategy =  this.overlay.position()
+      .global()
+      .centerHorizontally()
+      .centerVertically()
+
+    this.overlayRef = this.overlay.create({
+      hasBackdrop:true,
+      positionStrategy,
+      scrollStrategy: this.overlay.scrollStrategies.block()
+    })
+
+
+    const commentaryPortal = new ComponentPortal(Loading)
+    const componentRef =this.overlayRef.attach(commentaryPortal)
+  }
+  closeLoading(){
+    if (this.overlayRef) {
+      this.overlayRef.dispose()
+      this.overlayRef = null 
+    }
   }
 }

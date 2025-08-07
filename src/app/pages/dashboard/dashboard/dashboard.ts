@@ -90,4 +90,7 @@ export class Dashboard implements AfterViewInit{
     else
       return true
   }
+  openLoading(){
+    
+  }
 } 
