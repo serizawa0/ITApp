@@ -22,7 +22,7 @@ export class DialogService {
     }
   }
   closeLoading(){
-    console.log(this.overlayRef)
+    console.log('close called')
     this.overlayRef?.dispose()
     this.overlayRef = null
   }
