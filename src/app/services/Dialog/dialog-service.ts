@@ -24,10 +24,8 @@ export class DialogService {
   }
   closeLoading(){
     console.log('close Loading')
-    if (this.overlayRef) {
-      this.overlayRef.dispose() 
-      this.overlayRef = null
-    }
+    this.overlayRef?.dispose()
+    this.overlayRef = null
   }
   loadingIsOpen():boolean{
     return this.overlayRef !== null
