@@ -14,7 +14,9 @@
                     <img src="/icons/icon_file.png" alt="" class="gbl-but">
                 </button>
                 @if (!task.done) {
-                    <button (click)="finishSubTask(task.id)" class="nav-button">D</button>
+                    <button (click)="finishSubTask(task.id)" class="but-no-back" >
+                        <img src="/icons/icon_Ok.png" alt="" class="gbl-but">
+                    </button>
                 }
             </div>
         </div>
