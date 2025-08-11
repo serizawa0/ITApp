@@ -1,0 +1,38 @@
+<div class="flex column center-items dialog-container gap-05em">
+    <h1>Fichers</h1>
+    @if (fichiers.length==0) {
+        <h1>Aucun fichier</h1>
+     }
+    <div class="grid grid-2 gap-05em">
+        <div class="image grid grid-4 gap-05em">
+            @for (item of images; track $index) {
+                <div class="file-container">
+                    <img [src]="getFileLink(item.filename)" alt="" (click)="openPic(item)">
+                    <div class="overlay">
+                        <button (click)="download()">Download</button>
+                        <button (click)="delete()">Delete</button>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="flex column">
+            @for (item of autres; track $index) {
+                <div class="flex row">
+                    <p> {{ item.filename }} </p>
+                    <button>Download</button>
+                    <button>Delete</button>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="flex row gap-05em">
+        <label for="selectFile" class="selectFile simple-button-1">Upload</label>
+        <button [disabled]="selectedFiles.length<=0" (click)="onSubmit()" class="notification-button simple-button-1 ">
+            Valider
+            @if (selectedFiles.length) {
+                <span class="notification-badge">{{ selectedFiles.length }}</span>
+            }
+        </button>
+    </div>
+</div>
+<input type="file" name="" id="selectFile" multiple (change)="onFileSelected($event)" hidden>

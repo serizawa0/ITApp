@@ -1,0 +1,40 @@
+<div class="flex column gap-05em">
+    <div class="flex row space-between">
+        <div class="flex row center-items">
+            <span class="diamond" [ngClass]="getClass()"></span>
+            <div class="flex row gap-05em ">
+                <h1>{{ task.title }}</h1>
+                <button (click)="dropSubtask()" class="but-no-back" >
+                    <img src="/icons/icon_del.png" alt="" class="gbl-but">
+                </button>
+                <button (click)="openCommentaries()" class="but-no-back" >
+                    <img src="/icons/icon_comm.png" alt="" class="gbl-but">
+                </button>
+                <button (click)="openDialog()" class="but-no-back" >
+                    <img src="/icons/icon_file.png" alt="" class="gbl-but">
+                </button>
+                @if (!task.done) {
+                    <button (click)="finishSubTask(task.id)" class="but-no-back" >
+                        <img src="/icons/icon_Ok.png" alt="" class="gbl-but">
+                    </button>
+                }
+            </div>
+        </div>
+        <h1> {{ task.deadLine | date:'d MMMM y' }} </h1>
+    </div>
+    <!-- @if (task.children.length) { -->
+        @for (subtask of task.children; track $index) {
+            <div class="subtask-component">
+                <app-task-tree [taskTitle]="taskTitle" [task]="subtask" (maj)="relaiToSource()"></app-task-tree>
+            </div>
+        }
+    <!-- } -->
+    <form [formGroup]="subTaskForm" (submit)="addSubTask()">
+        <div class="flex row gap-05em">
+            <input type="text" [placeholder]="placeHolder" formControlName="title">
+            <input type="date" name="" id="" formControlName="deadLine">
+            <input type="submit" value="add" [disabled]="testDisabled()" class="simple-button-1">
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,28 @@
+.special-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.right-form{
+    background: #fff;
+    padding: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.left-form{
+    padding: 2em;
+}
+
+.left-form *{
+    color: #fff;
+}
+
+.commentary{
+    background: #333;
+    padding: 1em;
+}
+
+.grid-1-4-1{
+    grid-template-rows: 1fr 4fr 1fr;
+}

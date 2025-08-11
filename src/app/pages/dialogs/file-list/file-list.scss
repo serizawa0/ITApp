@@ -1,0 +1,57 @@
+.notification-button {
+  position: relative;
+  display: inline-block;
+  
+  cursor: pointer;
+}
+
+.notification-badge {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -50%;
+  right: -50%;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.file-container{
+  position: relative;
+  width:10vw;
+  height: auto;
+  margin: 1em;
+  display: inline-block;
+  border-radius: 0.5em;
+}
+.file-container img{
+  display: block;
+  width:100%;
+  height: auto;
+}
+
+.overlay{
+  position: absolute;
+  opacity: 0;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.5);
+  transition: opacity 0.5s ease;
+  border-radius: 0.5em;
+}
+.file-container:hover .overlay{
+  opacity: 1;
+}

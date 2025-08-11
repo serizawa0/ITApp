@@ -1,0 +1,41 @@
+
+<div class="fond">
+    <div class="flex column first-cadre">
+        <img src="Titre.png" alt="" class="banniere">
+        <div class="">
+            @for (task of tasks; track $index) {
+                <div class="flex column task-container">
+                    <div class="flex row gap-05em">
+                        <h1>{{ task.title }}</h1>
+                        <button class="but-no-back" (click)="dropTask(task.id)">
+                            <img src="/icons/icon_del.png" alt="" class="gbl-but">
+                        </button>
+
+
+                    </div>
+                    <div class="flex column">
+                        @for (subtask of task.subTasks; track $index) {
+                            <div class="subtask-component">
+                                <app-task-tree [taskTitle]="task.title" [task]="subtask" (maj)="majInterne()"></app-task-tree>
+                            </div>
+                        }
+                    </div>
+                    <form [formGroup]="subTaskForm" (submit)="addSubTask(task)">
+                        <div class="flex row gap-05em">
+                            <input type="text" name="" id="" placeholder="new subtask" formControlName="title">
+                            <input type="date" name="" id="" formControlName="deadLine">
+                            <input type="submit" value="valider" [disabled]="!testButton()" class="simple-button-1">
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+        <form [formGroup]="taskForm" (submit)="addTask()">
+            <div class="flex row gap-05em">
+                <input type="text" placeholder="new task" formControlName="title">
+                <input type="submit" value="valider" [disabled]="testTask()" class="simple-button-1">
+            </div>
+        </form>
+    </div>
+
+</div>

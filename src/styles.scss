@@ -1,0 +1,188 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'gblFont';
+}
+
+@font-face {
+    font-family: 'gblFont';
+    src: url(../public/fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+body{
+    background: url(../public/images/fond.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::after{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+}
+
+
+.cdk-overlay-backdrop {
+  background: rgba(0, 0, 0, 0.75);  /* Par exemple : semi-transparent */
+}
+
+.flex{
+    display: flex;
+}
+.flex.column{
+    flex-direction: column;
+}
+.flex.row{
+    flex-direction: row;
+}
+
+.flex.space-between{
+    justify-content: space-between;
+}
+
+.flex.center-items{
+    align-items: center;
+}
+
+.fullwidth{
+    width: 100vw;
+    justify-content: center;
+    
+}
+
+.grid{
+    display: grid;
+}
+.grid-2{
+    grid-template-columns: 1fr 1fr;
+}
+.grid-4{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+.gap-05em{
+    gap: 0.5em;
+}
+
+.task-container{
+    padding: 1em;
+    margin: 1em;
+    background: hsla(0,0%, 100%, 0.5);
+}
+
+.subtask-component{
+    margin-left: 10em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 1em;
+    background: hsla(0,0%, 100%, 0.5);
+}
+
+.selectFile{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 0.5em;
+    border: 1px solid #777;
+    border-radius: 0.5em;
+    background: #eee;
+    transition: 0.5s;
+}
+
+.selectFile:hover{
+    background: #aaa;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.image img{
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.dialog-container{
+    background: #fff;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.simple-button-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 0.25em;
+}
+
+.nav-button{
+    display: flex;
+    padding: 0.5em;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #555;
+    border-radius: 0.5em;
+    background: #fff;
+}
+
+.black-container{
+    background: #000;
+    border-radius: 1em;
+    min-height: 50vh;
+}
+
+.subtask-case{
+    padding: 1em;
+    border-radius: 0.5em;
+    border: 1px solid #000;
+}
+
+
+.line-under{
+    border-bottom: 3px solid black;
+}
+
+.first-cadre{
+    // background: hsla(0,100%, 100%, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+input {
+    padding: 0.5em;
+}
+
+.gbl-but{
+    background: none;
+    border: none;
+    width:40px;
+    height: 40px;
+    padding: none;
+}
+
+.but-no-back{
+    background: none;
+    border: none;
+}
+
+.fond{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.75);
+}
