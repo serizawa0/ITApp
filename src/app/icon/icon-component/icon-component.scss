@@ -1,14 +1,16 @@
 .icon{
     color: red;
     transition: 0.5s;
-    font-size: 2em;
+    font-size: 2.5em;
+    align-content: center;
+    justify-items: center;
     // height: 100%;
     display: flex;
     align-items: center;
-    background: #ddd;
+    // background: #ddd;
     border-radius: 0.1em;
-    border: 1px solid #555;
     cursor: pointer;
+    font-size-adjust: inherit;
 }
 .icon:hover{
     color: #b10000;
