@@ -6,11 +6,12 @@ import { LiaisonBack } from '../../../services/liaisonBack/liaison-back';
 import { DefaultDeserializer } from 'v8';
 import { DialogService } from '../../../services/Dialog/dialog-service';
 import { SocketService } from '../../../services/Socket/socket-service';
+import { IconComponent } from '../../../icon/icon-component/icon-component';
 
 @Component({
   selector: 'app-dashboard',
   imports: [
-    TaskTree, ReactiveFormsModule
+    TaskTree, ReactiveFormsModule, IconComponent
   ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss'
