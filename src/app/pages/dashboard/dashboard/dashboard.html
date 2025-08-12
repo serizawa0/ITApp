@@ -7,9 +7,10 @@
                 <div class="flex column task-container">
                     <div class="flex row gap-05em">
                         <h1>{{ task.title }}</h1>
-                        <button class="but-no-back" (click)="dropTask(task.id)">
+                        <!-- <button class="but-no-back" (click)="dropTask(task.id)">
                             <img src="/icons/icon_del.png" alt="" class="gbl-but">
-                        </button>
+                        </button> -->
+                        <app-icon-component name="icon_supprimer" (click)="dropTask(task.id)"></app-icon-component>
 
 
                     </div>

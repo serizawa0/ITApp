@@ -11,11 +11,12 @@ import { Commentary } from '../../dialogs/commentary/commentary';
 import { CommonModule } from '@angular/common';
 import { Loading } from '../../../popups/loading/loading';
 import { DialogService } from '../../../services/Dialog/dialog-service';
+import { IconComponent } from '../../../icon/icon-component/icon-component';
 
 @Component({
   selector: 'app-task-tree',
   imports: [
-    ReactiveFormsModule, CommonModule
+    ReactiveFormsModule, CommonModule, IconComponent
   ],
   templateUrl: './task-tree.html',
   styleUrl: './task-tree.scss'
