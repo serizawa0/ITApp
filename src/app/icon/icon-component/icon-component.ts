@@ -15,7 +15,7 @@ export class IconComponent implements  OnInit{
     private sanitizer:DomSanitizer
   ){}
   ngOnInit(): void {
-    this.http.get('icons/test_svg.svg', { responseType: 'text' }).subscribe(
+    this.http.get('icons/icon_supprimer.svg', { responseType: 'text' }).subscribe(
       svgText => {
         this.svg = this.sanitizer.bypassSecurityTrustHtml(svgText)
       }
