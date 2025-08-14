@@ -9,8 +9,9 @@
                 <div class="file-container">
                     <img [src]="getFileLink(item.filename)" alt="" (click)="openPic(item)">
                     <div class="overlay">
-                        <button (click)="download()">Download</button>
-                        <button (click)="delete()">Delete</button>
+                        <button (click)="openPic(item)">Open</button>
+                        <button (click)="onDownload(item.filename)">Down</button>
+                        <app-icon-component (click)="onDelete(item.id)" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                     </div>
                 </div>
             }
@@ -19,8 +20,8 @@
             @for (item of autres; track $index) {
                 <div class="flex row">
                     <p> {{ item.filename }} </p>
-                    <button>Download</button>
-                    <button>Delete</button>
+                    <button (click)="onDownload(item.filename)">Download</button>
+                    <app-icon-component (click)="onDelete(item.id)" hoverColor="#cf0000" baseColor="#000"></app-icon-component>
                 </div>
             }
         </div>

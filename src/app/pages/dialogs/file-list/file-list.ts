@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LiaisonBack } from '../../../services/liaisonBack/liaison-back';
 import { Task } from '../../../../interfaces/TaskInterfaces';
@@ -6,11 +6,12 @@ import { FileInterface } from '../../../../interfaces/FileInterface';
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { PicLook } from '../pic-look/pic-look';
+import { IconComponent } from '../../../icon/icon-component/icon-component';
 
 @Component({
   selector: 'app-file-list',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule, IconComponent
   ],
   templateUrl: './file-list.html',
   styleUrl: './file-list.scss'
@@ -19,6 +20,7 @@ export class FileList implements OnInit, OnChanges{
   @Input() taskTitle:string = ''
   @Input() id:string = ''
   @Input() taskId:string = ''
+  @Output() action = new EventEmitter<string>()
   images:FileInterface[] = []
   autres:FileInterface[] = []
   fichiers:FileInterface[] = []
@@ -83,6 +85,8 @@ export class FileList implements OnInit, OnChanges{
     this.liaison.getFiles(this.id).then(data => data.subscribe(
       element => {
         this.fichiers = element
+        console.log(this.fichiers);
+        
         this.fichiers.forEach(fichier => {
           const extension = fichier.filename.split('.').pop()?.toLowerCase();
 
@@ -119,8 +123,28 @@ export class FileList implements OnInit, OnChanges{
   download(){
     console.log('downloading')
   }
+  onDownload(filename: string) {
+    this.liaison.downloadFile(filename).subscribe((blob) => {
+      const a = document.createElement('a');
+      const objectUrl = URL.createObjectURL(blob);
+      a.href = objectUrl;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(objectUrl);
+    });
+  }
 
-  delete(){
-    console.log('delete')
+  onDelete(id:string){
+    if (id) {
+      // console.log(id)
+      this.liaison.deleteFile(id).then( data => data.subscribe(
+        element => {
+          this.action.emit('maj')
+          this.getFiles()
+        }
+      ))
+    }
+    
+    // const id = item.id
   }
 }

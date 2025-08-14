@@ -83,4 +83,23 @@ export class LiaisonBack {
     const data = { subtaskId:subtaskId, content: content, author:author }
     return this.http.post<CommentaryInterface[]>(this.URL+'subCommentary', data)
   }
+  async editCommentary(id:string, subtaskId:string, content:string,author:string){
+    const data = { id:id, subtaskId:subtaskId,content: content, author:author }
+    return this.http.post<CommentaryInterface[]>(this.URL+'editCommentary', data)
+  }
+
+  async deleteCommentary(id:string){
+    const data = { id:id }
+    return this.http.post(this.URL+'deleteCommentary', data)
+  }
+
+  downloadFile(filename: string) {
+    const data = { filename:filename }
+    return this.http.post(this.URL+'download', data ,{ responseType: 'blob' });
+  }
+
+  async deleteFile(id:string){
+    const data = { id:id }
+    return this.http.post(this.URL+'deleteFile', data);
+  }
 }

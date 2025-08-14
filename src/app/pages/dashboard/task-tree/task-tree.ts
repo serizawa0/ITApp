@@ -65,6 +65,11 @@ export class TaskTree implements OnInit{
     componentRef.instance.id =this.task.id
     componentRef.instance.taskId =this.task.taskId
     componentRef.instance.taskTitle = this.taskTitle
+    componentRef.instance.action.subscribe(
+      element => {
+        this.relaiToSource()
+      }
+    )
   }
 
   openCommentaries(){
@@ -88,6 +93,9 @@ export class TaskTree implements OnInit{
     const componentRef =overlayRef.attach(commentaryPortal)
     componentRef.instance.subtaskId= this.task.id
     componentRef.instance.subtask= this.task
+    componentRef.instance.action.subscribe(aelement => {
+      this.relaiToSource()
+    })
   }
 
   addSubTask(){

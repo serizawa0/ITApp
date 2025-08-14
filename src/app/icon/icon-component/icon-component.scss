@@ -1,7 +1,6 @@
 .icon{
-    color: red;
+    color: var(--base-color);
     transition: 0.5s;
-    font-size: 2.5em;
     align-content: center;
     justify-items: center;
     // height: 100%;
@@ -13,6 +12,6 @@
     font-size-adjust: inherit;
 }
 .icon:hover{
-    color: #b10000;
+    color: var(--hover-color);
     transform: scale(1.1);
 }

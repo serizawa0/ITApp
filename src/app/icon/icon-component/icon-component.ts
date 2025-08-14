@@ -9,7 +9,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrl: './icon-component.scss'
 })
 export class IconComponent implements  OnInit{
+  @Input() fontsize!:number
   @Input() name?:string
+  @Input() baseColor!:string
+  @Input() hoverColor!:string
   svg?: SafeHtml
   constructor(
     private http:HttpClient,
@@ -24,7 +27,7 @@ export class IconComponent implements  OnInit{
       )  
     }
     else{
-      this.http.get('icons/${ this.name }.svg', { responseType: 'text' }).subscribe(
+      this.http.get('icons/'+this.name+'.svg', { responseType: 'text' }).subscribe(
         svgText => {
           this.svg = this.sanitizer.bypassSecurityTrustHtml(svgText)
         }

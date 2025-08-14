@@ -4,7 +4,7 @@
             <span class="diamond" [ngClass]="getClass()"></span>
             <div class="flex row gap-05em ">
                 <h1>{{ task.title }}</h1>
-                <app-icon-component (click)="dropSubtask()"></app-icon-component>
+                <app-icon-component (click)="dropSubtask()" [fontsize]="2" hoverColor="#cf0000" baseColor="#000"></app-icon-component>
                 <button (click)="dropSubtask()" class="but-no-back" >
                     <img src="/icons/icon_del.png" alt="" class="gbl-but">
                 </button>
