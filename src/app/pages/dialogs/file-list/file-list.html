@@ -9,8 +9,11 @@
                 <div class="file-container">
                     <img [src]="getFileLink(item.filename)" alt="" (click)="openPic(item)">
                     <div class="overlay">
-                        <button (click)="openPic(item)">Open</button>
-                        <button (click)="onDownload(item.filename)">Down</button>
+                        <div class="flex column">
+                            <button (click)="openPic(item)">Aperçu</button>
+                            <button (click)="onDownload(item.filename)">Téléchargement</button>
+                            <button (click)="onDelete(item.id)">Suppression</button>
+                        </div>
                         <app-icon-component (click)="onDelete(item.id)" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                     </div>
                 </div>
