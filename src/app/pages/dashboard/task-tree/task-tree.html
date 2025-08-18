@@ -5,15 +5,17 @@
             <div class="flex row gap-05em ">
                 <h1>{{ task.title }}</h1>
                 <app-icon-component (click)="dropSubtask()" [fontsize]="2" hoverColor="#cf0000" baseColor="#000"></app-icon-component>
-                <button (click)="dropSubtask()" class="but-no-back" >
+                <!-- <button (click)="dropSubtask()" class="but-no-back" >
                     <img src="/icons/icon_del.png" alt="" class="gbl-but">
-                </button>
-                <button (click)="openCommentaries()" class="but-no-back" >
+                </button> -->
+                <app-icon-component name="comment_icon" (click)="openCommentaries()" [fontsize]="2" hoverColor="#0064ff" baseColor="#000"></app-icon-component>
+                <!-- <button (click)="openCommentaries()" class="but-no-back" >
                     <img src="/icons/icon_comm.png" alt="" class="gbl-but">
-                </button>
-                <button (click)="openDialog()" class="but-no-back" >
+                </button> -->
+                <app-icon-component name="file_icon" (click)="openDialog()" [fontsize]="2" hoverColor="#d79e00" baseColor="#000"></app-icon-component>
+                <!-- <button (click)="openDialog()" class="but-no-back" >
                     <img src="/icons/icon_file.png" alt="" class="gbl-but">
-                </button>
+                </button> -->
                 @if (!task.done) {
                     <button (click)="finishSubTask(task.id)" class="but-no-back" >
                         <img src="/icons/icon_Ok.png" alt="" class="gbl-but">
@@ -32,7 +34,7 @@
     <!-- } -->
     <form [formGroup]="subTaskForm" (submit)="addSubTask()">
         <div class="flex row gap-05em">
-            <input type="text" [placeholder]="placeHolder" formControlName="title">
+            <input type="text" placeholder="scope" formControlName="title">
             <input type="date" name="" id="" formControlName="deadLine">
             <input type="submit" value="add" [disabled]="testDisabled()" class="simple-button-1">
         </div>

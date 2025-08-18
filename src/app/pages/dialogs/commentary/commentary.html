@@ -7,8 +7,9 @@
                     <p class="line-under"> {{ item.author }} </p>
                     <pre class="line-under">{{ item.content }}</pre>
                     <p> {{ item.createdAt | date:'d MMMM y' }} </p>
-                    <div class="flex row">
-                        <button (click)="setEdit(item)">Edit</button>
+                    <div class="flex row justify-center gap-1em">
+                        <!-- <button (click)="setEdit(item)">Edit</button> -->
+                        <app-icon-component name="edit_icon" (click)="setEdit(item)" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                         <app-icon-component (click)="deleteCommentary(item.id)" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                         <!-- <button (click)="deleteCommentary(item.id)">Delete</button> -->
                     </div>

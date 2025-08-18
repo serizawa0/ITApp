@@ -10,7 +10,7 @@
                     <img [src]="getFileLink(item.filename)" alt="" (click)="openPic(item)">
                     <div class="overlay">
                         <div class="flex column gap-05em">
-                            <app-icon-component [fontsize]=2 (click)="openPic(item)" name="edit_icon" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
+                            <app-icon-component [fontsize]=2 (click)="openPic(item)" name="view_icon" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                             <app-icon-component [fontsize]=2 (click)="onDownload(item.filename)" name="download_icon" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                             <app-icon-component [fontsize]=2 (click)="onDelete(item.id)" hoverColor="#fff" baseColor="#aaa"></app-icon-component>
                         </div>

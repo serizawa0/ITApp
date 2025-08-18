@@ -51,6 +51,10 @@ body::after{
     align-items: center;
 }
 
+.justify-center{
+    justify-content: center;
+}
+
 .fullwidth{
     width: 100vw;
     justify-content: center;
@@ -72,6 +76,10 @@ body::after{
     gap: 0.5em;
 }
 
+.gap-1em{
+    gap: 1em;
+}
+
 .task-container{
     padding: 1em;
     margin: 1em;
@@ -79,7 +87,7 @@ body::after{
 }
 
 .subtask-component{
-    margin-left: 10em;
+    margin-left: 5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding: 1em;
